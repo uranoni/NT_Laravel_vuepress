@@ -10,7 +10,7 @@ module.exports = {
         ],
         sidebar: {
             '/guide/': [
-                '',
+                '', //空空找README.md
                 'blade',
                 'migrate'
             ],

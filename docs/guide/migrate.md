@@ -25,7 +25,6 @@
 ```
 
 ### ColumnType
-欄位名稱
 ```php
 * integer
 * boolean

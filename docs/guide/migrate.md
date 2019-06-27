@@ -58,7 +58,7 @@
 ### 指令
     composer require doctrine/dbal
 
-### 修改
+### 修改欄位
 *   change 
 有使用change表示修改，如果不加上change表示新增
 
@@ -94,4 +94,54 @@
     * dropPrimary 丟掉主鍵
     * dropUnique 丟掉索引值
     * dropIndex 丟掉索引值
+```
+
+### 修改索引、主鍵
+把users的 id 主鍵刪除
+兩種方法都可以
+```php
+$table->dropPrimary(['id']); //陣列表該資料表欄位刪除
+
+$table->dropPrimary('users_id_primary'); // laravle慣例
+```
+
+### 建立連結 foreign key
+
+posts的資料表 建立user_id 
+並且建立外來鍵對應到 users tables的 id這個欄位
+1. 建立基本連結
+```php
+Schema::table('posts', function ($table) {
+    $table->integer('user_id')->unsigned();
+
+    $table->foreign('user_id')->references('id')->on('users');
+});
+```
+2.  約束資料表關聯的應用
+
+當文章刪除的時候使用者 是否被刪除'cascade'表示刪除使用者時連同文章刪除
+```php
+$table->foreign('user_id')
+      ->references('id')->on('users')
+      ->onDelete('cascade');
+```
+
+參數設定
+* CASCADE - 會將有所關聯的紀錄行也會進行刪除或修改。
+
+* SET NULL - 會將有所關聯的紀錄行設定成 NULL。
+
+* NO ACTION - 不鳥你，想刪就刪
+
+* RESTRICT - 有存在的關聯紀錄行時，會禁止父資料表的刪除或修改動作。
+
+3. 丟掉foreign_key
+刪掉post的user_id 的key
+
+```php
+$table->dropForeign('posts_user_id_foreign');
+```
+
+```php
+$table->dropForeign(['user_id']);
 ```

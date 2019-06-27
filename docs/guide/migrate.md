@@ -17,34 +17,40 @@
 3.  Index 
 
 ### Schema靜態方法
-    ● Schema::create  建立
-    ● Schema::rename  重新命名
-    ● Schema::drop/dropIfExists   丟掉/丟掉是否存在
-    ● Schema::table(要針對資料表做修改)
+```php
+* Schema::create  建立
+* Schema::rename  重新命名
+* Schema::drop/dropIfExists   丟掉/丟掉是否存在
+* Schema::table(要針對資料表做修改)
+```
 
 ### ColumnType
-    ● integer
-    ● boolean
-    ● string
-    ● text
-    ● enum
-    ● date/dateTime/time
-    ● json
-    ● increments(UNSIGNED BIGINT)
-    ● timestamp(created_at/upload_at)
-    ● unsignedInteger
-    ● softDeletes(delete_at) 軟性刪除 執行時只會更新這個時間
-    ●● Example: $table->increments('id')
-    ●●● 其他可在 https://laravel.com/docs/5.7/migrations#colums 看到
+```php
+* integer
+* boolean
+* string
+* text
+* enum
+* date/dateTime/time
+* json
+* increments(UNSIGNED BIGINT)
+* timestamp(created_at/upload_at)
+* unsignedInteger
+* softDeletes(delete_at) 軟性刪除 執行時只會更新這個時間
+* Example: $table->increments('id')
+* 其他可在 https://laravel.com/docs/5.7/migrations#colums 看到
+```
 
 ### Colum Modifier
-    ● nullable  值可以不填
-    ● after     可以插在特定值得後面
-    ● default   預測值
-    ● useCurrent 現在時間
-    ● unsigned  可以把 int轉unsign
-    ● comment   註解
-    ●● Example: $table->text('content')->default('預設內容')
+```php
+* nullable  值可以不填
+* after     可以插在特定值得後面
+* default   預測值
+* useCurrent 現在時間
+* unsigned  可以把 int轉unsign
+* comment   註解
+* Example: $table->text('content')->default('預設內容')
+```
 
 ## 修改Modifung Cloumns
 ### 指令

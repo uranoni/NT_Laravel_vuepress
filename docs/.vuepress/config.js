@@ -12,7 +12,8 @@ module.exports = {
             '/guide/': [
                 '', //空空找README.md
                 'blade',
-                'migrate'
+                'migrate',
+                'model'
             ],
             '/env/': [
                 '',

@@ -15,3 +15,13 @@ filename.blade.php   (file extension)
 * footer
 
     放置頁面尾端
+
+## CSRF
+create a token protection middleware can validate the request.
+
+```php
+<form method="POST" action="/profile">
+    @csrf
+    ...
+</form>
+```

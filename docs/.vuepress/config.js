@@ -13,7 +13,8 @@ module.exports = {
                 '', //空空找README.md
                 'blade',
                 'migrate',
-                'model'
+                'model',
+                'controller'
             ],
             '/env/': [
                 '',
